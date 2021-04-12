@@ -6,6 +6,10 @@
 var yahooFinance = require('yahoo-finance');
 const Discord = require('discord.js');
 
+/**
+ * Retrieves simple stock information
+ * @param {DiscordWrapper} discord The DiscordWrapper instance given
+ */
 var getStonks = function (discord) {
     var regex = /\$([aA-zZ])\w{0,4}\b/gim;
     var stock = discord.msg.content.match(regex);

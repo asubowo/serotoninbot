@@ -1,5 +1,5 @@
 /**
- * Wrapper class around an incoming Discord message
+ * Extensible wrapper class around an incoming Discord message
  * @author Andrew Subowo
  * @since 1.0
  */

@@ -9,7 +9,11 @@
 const http = require('http');
 const Discord = require('discord.js');
 
-var getbreakups = function (command) {
+/**
+ * 
+ * @param {DiscordWrapper} discordWrapper 
+ */
+var getbreakups = function (discordWrapper) {
     http.get('http://labs.andrewsubowo.com/exidents/breakups', (resp) => {
         let data = '';
         resp.on('data', (chunk) => {
@@ -20,13 +24,13 @@ var getbreakups = function (command) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setTitle('Exidents Happen')
-                .setURL('http://labs.andrewsubowo.com/exidents')
+                .setURL('https://labs.andrewsubowo.com/exidents')
                 .addFields(
                     { name: 'Breakups', value: JSON.parse(data).breakups.toString() },
                     { name: 'Since', value: JSON.parse(data).lastRecordedDate.toString() }
                 )
                 .setFooter('Data provided by Subowo Labs - Subowo Labs is not responsible for relationship problems from correlated data.');
-            command.msg.channel.send(embed);
+            discordWrapper.msg.channel.send(embed);
         });
 
         resp.on('error', (err) => {
