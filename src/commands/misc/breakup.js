@@ -6,7 +6,7 @@
 /**
  * @param msg The msg body
  */
-const http = require('http');
+const https = require('https');
 const Discord = require('discord.js');
 
 /**
@@ -14,7 +14,7 @@ const Discord = require('discord.js');
  * @param {DiscordWrapper} discordWrapper 
  */
 var getbreakups = function (discordWrapper) {
-    http.get('http://labs.andrewsubowo.com/exidents/breakups', (resp) => {
+    https.get('http://labs.andrewsubowo.com/exidents/breakups', (resp) => {
         let data = '';
         resp.on('data', (chunk) => {
             data += chunk;
