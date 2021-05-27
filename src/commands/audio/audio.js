@@ -25,12 +25,14 @@ var audio = function(discord) {
  */
 function playAudio(audio, discord) {
   var voiceChannel = discord.msg.member.voice.channel;
+
   try {
     voiceChannel.join().then(function(connection) {
-      const dispatcher = connection.play('../assets/audio/' + audio);
+      const dispatcher = connection.play('./assets/audio/' + audio);
       dispatcher.on('finish', () => {
         voiceChannel.leave();
       });
+
     }).catch(function(err) {
       console.log('Cannot play audio file');
       console.log(err);

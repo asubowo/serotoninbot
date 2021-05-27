@@ -14,7 +14,7 @@ const Discord = require('discord.js');
  * @param {DiscordWrapper} discordWrapper 
  */
 var getbreakups = function (discordWrapper) {
-    https.get('http://labs.andrewsubowo.com/exidents/breakups', (resp) => {
+    https.get('https://labs.andrewsubowo.com/exidents/breakups', (resp) => {
         let data = '';
         resp.on('data', (chunk) => {
             data += chunk;

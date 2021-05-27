@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   morgana:
+    container_name: morgana
     image: asubowo/morgana
     restart: unless-stopped
     env_file: .env
